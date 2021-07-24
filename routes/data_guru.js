@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const config = require('../config/knex');
-const knex = require('knex')(config);
+const knex = require("knex")(config);
 const authJwt = require('../middleware/authJwt');
 
 router.get('/',authJwt, async(req, res) => {
@@ -19,7 +19,7 @@ router.post('/',authJwt, async(req, res) => {
         let penulis = req.body.penulis;
 
         let id = await knex('buku').insert({
-            "judul": judul,
+            'judul': judul,
             "sinopsis": sinopsis,
             "penulis": penulis
         })
@@ -34,7 +34,7 @@ router.post('/',authJwt, async(req, res) => {
         next(e)
     }
 })
-router.put('/:id',authJwt, async(req, res) => {
+router.put('/:id', async(req, res) => {
     try {
         let id = req.params.id;
         let judul = req.body.judul;

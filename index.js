@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 const programmingLanguagesRouter = require('./routes/data_siswa');
 dataGuruRouter = require('./routes/data_guru');
 dataLogin = require('./routes/login');
+routerbarang  = require('./routes/barang');
 
 app.use(bodyParser.json());
 app.use(
@@ -24,6 +25,8 @@ app.get('/', (req, res) => {
 app.use('/data_siswa', programmingLanguagesRouter);
 app.use('/data_guru', dataGuruRouter);
 app.use('/login', dataLogin);
+app.use('/barang', routerbarang);
+
 
 /* Error handler middleware */
 app.use((err, req, res, next) => {
